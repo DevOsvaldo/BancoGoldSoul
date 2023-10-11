@@ -19,7 +19,7 @@ import java.util.Locale;
 
             //Recebe o nome do titular da conta
             String nome = JOptionPane.showInputDialog(null,"Informe o nome do titular: ",
-                    "Nome do titular",JOptionPane.INFORMATION_MESSAGE);
+                    "Nome do titular",JOptionPane.INFORMATION_MESSAGE).toUpperCase();
             //recebe a string que representa o numero da conta.
             String info1 = JOptionPane.showInputDialog(null,"Informe o numero da conta bancaria:  Ex:0000",
                     "Numero da Conta",JOptionPane.INFORMATION_MESSAGE);

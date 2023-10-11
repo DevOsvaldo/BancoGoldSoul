@@ -50,18 +50,23 @@ public class ContaBancaria {
 
     }
     public void saque(double valorSaque){
-        if(saldo < valorSaque + taxa){
+        if(saldo < 0.00 || saldo < valorSaque + taxa){
+            saldo -= valorSaque + taxa;
             System.out.println("Seu saldo é inferior ao saque!");
             JOptionPane.showMessageDialog(null,"VOCÊ ESTÁ SEM SALDO PARA ESTE SAQUE.",
 
                     "**ATENÇÃO**",JOptionPane.WARNING_MESSAGE);
-        } else{
+        }else if(valorSaque == 0.00){
+            JOptionPane.showMessageDialog(null,"SAQUE NÃO REALIZADO");
+        }
+        else{
             System.out.println("Sucesso");
+            saldo -= valorSaque + taxa;
             JOptionPane.showMessageDialog(null,"SAQUE REALIZADO COM SUCESSO. AGUARDE AS CÉDULAS",
 
                     "INFORMAÇÃO",JOptionPane.INFORMATION_MESSAGE);
         }
-        saldo -= valorSaque + taxa;
+
 
     }
     public String accountData(){

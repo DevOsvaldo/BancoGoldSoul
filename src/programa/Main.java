@@ -28,7 +28,8 @@ import java.util.Locale;
             //uma verificação de depósito inicial no ato do cadastro da conta
             int initValor = JOptionPane.showConfirmDialog(null,"Você fará um deposito inicial?");
             if(initValor == 0){
-                String respt = JOptionPane.showInputDialog("Favor inserir o valor: Ex:200.00  ");
+                String respt = JOptionPane.showInputDialog(null,"Favor inserir o valor: Ex:200.00",
+                        "Deposito Incial",JOptionPane.INFORMATION_MESSAGE);
                 valorInicial= Double.parseDouble(respt);
             } else{
                 valorInicial = 0;
@@ -49,6 +50,8 @@ import java.util.Locale;
             if(info2 == 0) {
                 deposit = JOptionPane.showInputDialog(null, "INSIRA O VALOR DO DEPOSITO: Ex:200.00",
                         "Valor do Deposito", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null,"CERTO, FINALIZANDO OPERAÇÃO DE DEPOSITO");
             }
             double valorDeposito = Double.parseDouble(deposit);
             conta.deposito(valorDeposito);
@@ -57,7 +60,7 @@ import java.util.Locale;
             String saque;//variável temporária
             int info3 = JOptionPane.showConfirmDialog(null,"Você fará um saque? ");
             if(info3 == 0){
-               saque = JOptionPane.showInputDialog(null, "INSIRA O VALOR DO DEPOSITO: Ex:200.00",
+               saque = JOptionPane.showInputDialog(null, "INSIRA O VALOR DO SAQUE: Ex:200.00",
                         "Valor de Saque", JOptionPane.INFORMATION_MESSAGE);
                JOptionPane.showMessageDialog(null,"LEMBRANDO QUE SAQUE TEM UM TAXA DE $5.00",
                        "**ATENÇÃO**",JOptionPane.WARNING_MESSAGE);
@@ -67,7 +70,9 @@ import java.util.Locale;
             double valorSaque = Double.parseDouble(saque);
             conta.saque(valorSaque);
             JOptionPane.showMessageDialog(null,conta.accountData());
+            System.out.println(conta.accountData());
             System.exit(0);
+
 
 
 

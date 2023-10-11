@@ -4,18 +4,15 @@ import entidade.ContaBancaria;
 
 import javax.swing.*;
 
-import java.util.ArrayList;
+
 import java.util.Locale;
 
 
     public class Main {
         public static void main(String[] args) {
             Locale.setDefault(Locale.US);
-
-
-            ArrayList<ContaBancaria> banco = new ArrayList<>();
             ContaBancaria conta;
-            double valorInicial = 0.00;
+            double valorInicial;
             //Boas vindas do banco
             JOptionPane.showMessageDialog(null,"BEM VINDO AO BANCO GOLD SOUL",
                     "BANCO GOLD SOUL",JOptionPane.INFORMATION_MESSAGE);
@@ -57,13 +54,15 @@ import java.util.Locale;
             conta.deposito(valorDeposito);
 
             JOptionPane.showMessageDialog(null,conta.accountData());
-            String saque = "";//variável temporária
+            String saque;//variável temporária
             int info3 = JOptionPane.showConfirmDialog(null,"Você fará um saque? ");
             if(info3 == 0){
                saque = JOptionPane.showInputDialog(null, "INSIRA O VALOR DO DEPOSITO: Ex:200.00",
                         "Valor de Saque", JOptionPane.INFORMATION_MESSAGE);
                JOptionPane.showMessageDialog(null,"LEMBRANDO QUE SAQUE TEM UM TAXA DE $5.00",
                        "**ATENÇÃO**",JOptionPane.WARNING_MESSAGE);
+            } else{
+                saque = "0.00";
             }
             double valorSaque = Double.parseDouble(saque);
             conta.saque(valorSaque);
